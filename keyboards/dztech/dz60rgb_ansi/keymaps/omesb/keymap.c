@@ -13,38 +13,27 @@
 #define MS_WD KC_MS_WH_DOWN     // Mouse Button 5
 
 // Tap Dance declarations
-enum {
-  TD1,
-  TD2,
-  TD3,
-  TD4,
-  TD5,
-  TD6,
-  TD7,
-  TD8,
-  TD9,
-  TD10,
-  TD11,
-  TD12,
-  TDSL
-};
+enum { TD01, TD02, TD03, TD04, TD05, TD06, TD07, TD08, TD09, TD10, TD11, TD12, TDSL, TDPP, TDPR, TDNT };
 
 // Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Escape, twice for Caps Lock
-    [TD1] = ACTION_TAP_DANCE_DOUBLE(KC_1, KC_F1),
-    [TD2] = ACTION_TAP_DANCE_DOUBLE(KC_2, KC_F2),
-    [TD3] = ACTION_TAP_DANCE_DOUBLE(KC_3, KC_F3),
-    [TD4] = ACTION_TAP_DANCE_DOUBLE(KC_4, KC_F4),
-    [TD5] = ACTION_TAP_DANCE_DOUBLE(KC_5, KC_F5),
-    [TD6] = ACTION_TAP_DANCE_DOUBLE(KC_6, KC_F6),
-    [TD7] = ACTION_TAP_DANCE_DOUBLE(KC_7, KC_F7),
-    [TD8] = ACTION_TAP_DANCE_DOUBLE(KC_8, KC_F8),
-    [TD9] = ACTION_TAP_DANCE_DOUBLE(KC_9, KC_F9),
+    [TD01] = ACTION_TAP_DANCE_DOUBLE(KC_1, KC_F1),
+    [TD02] = ACTION_TAP_DANCE_DOUBLE(KC_2, KC_F2),
+    [TD03] = ACTION_TAP_DANCE_DOUBLE(KC_3, KC_F3),
+    [TD04] = ACTION_TAP_DANCE_DOUBLE(KC_4, KC_F4),
+    [TD05] = ACTION_TAP_DANCE_DOUBLE(KC_5, KC_F5),
+    [TD06] = ACTION_TAP_DANCE_DOUBLE(KC_6, KC_F6),
+    [TD07] = ACTION_TAP_DANCE_DOUBLE(KC_7, KC_F7),
+    [TD08] = ACTION_TAP_DANCE_DOUBLE(KC_8, KC_F8),
+    [TD09] = ACTION_TAP_DANCE_DOUBLE(KC_9, KC_F9),
     [TD10] = ACTION_TAP_DANCE_DOUBLE(KC_0, KC_F10),
     [TD11] = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_F11),
     [TD12] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_F12),
     [TDSL] = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, KC_BSLS),
+    [TDPP] = ACTION_TAP_DANCE_DOUBLE(KC_MPLY, KC_PSCR),
+    [TDPR] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_MPRV, 3),
+    [TDNT] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_MNXT, 2)
 };
 
 // Add tap dance item in place of a key code
@@ -54,11 +43,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /** BASE Layer */
     [0] = LAYOUT_60_ansi(
-        LT(1, KC_GRV),    TD(TD1), TD(TD2), TD(TD3), TD(TD4), TD(TD5), TD(TD6),  TD(TD7), TD(TD8), TD(TD9), TD(TD10), TD(TD11), TD(TD12), KC_DEL,
+        KC_GRV,    TD(TD01), TD(TD02), TD(TD03), TD(TD04), TD(TD05), TD(TD06),  TD(TD07), TD(TD08), TD(TD09), TD(TD10), TD(TD11), TD(TD12), KC_DEL,
         KC_TAB,           KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,    KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,  KC_BSPC,
         LCTL_T(KC_ESC),   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,     KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_QUOT,            KC_ENT,
         KC_LSFT,          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,     KC_M,    KC_COMM, KC_DOT,  TD(TDSL),                      KC_RSFT,
-        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC,  KC_RALT, KC_MRWD, KC_MPLY, KC_MFFD
+        KC_LCTL, KC_LGUI, KC_LALT, LT(1, KC_SPC), KC_RALT, TD(TDPR), TD(TDPP), TD(TDNT)
     ),
 
     /** FN Layer */
@@ -85,6 +74,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,           KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,     KC_Y,     KC_U,    KC_I,    KC_O,   KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
         KC_ESC,           KC_A,    KC_S,    KC_D,    KC_F,    KC_G,     KC_H,     KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,          KC_ENT,
         KC_LSFT,          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,     KC_N,     KC_M,    KC_COMM, KC_DOT, KC_SLSH,                   KC_RSFT,
-        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, OSM(MOD_RALT), _______, _______, KC_RCTL
+        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, OSM(MOD_RALT), _______, _______, _______
     ),
 };

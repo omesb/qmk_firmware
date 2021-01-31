@@ -1,6 +1,6 @@
 # Firmware size Optimizations
 EXTRAFLAGS += -flto
-MOUSEKEY_ENABLE = no
+MOUSEKEY_ENABLE = yes
 NKRO_ENABLE = no
 SPACE_CADET_ENABLE = no
 SPLIT_KEYBOARD    = no

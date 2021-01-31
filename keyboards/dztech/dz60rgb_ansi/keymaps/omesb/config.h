@@ -4,7 +4,7 @@
 // help for fast typist+dual function keys?
 #define PERMISSIVE_HOLD
 
-#define TAPPING_TERM               175
+#define TAPPING_TERM               150
 
 // #define COMBO_COUNT 1
 
