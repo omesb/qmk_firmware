@@ -1,11 +1,12 @@
 #define dzrgb60_ansi
 #pragma once
 
-
 // help for fast typist+dual function keys?
 #define PERMISSIVE_HOLD
 
-//#define TAPPING_TERM               150
+#define TAPPING_TERM               175
+
+// #define COMBO_COUNT 1
 
 // mouse settings
 #define MOUSEKEY_DELAY             50
